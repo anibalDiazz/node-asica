@@ -6,6 +6,35 @@ metadata:
     name: dev
 
 ---
+apiVersion: v1
+kind: ResourceQuota
+metadata:
+  name: res-quota
+  namespace: dev
+spec:
+  hard:
+    requests.cpu: 1
+    requests.memory: 1Gi
+    limits.cpu: 2
+    limits.memory: 2Gi
+
+---
+apiVersion: v1
+kind: LimitRange
+metadata:
+  name: min-max
+  namespace: dev
+spec:
+  limits:
+    - max:
+        memory: 1Gi
+        cpu: 1
+      min:
+        memory: 100Mi
+        cpu: 100m 
+      type: Container 
+ 
+---
 apiVersion: apps/v1
 kind: Deployment
 metadata: 
@@ -25,8 +54,15 @@ spec:
     spec:
       containers:
       - name: hello-node-pod
-        image: adiazga/node-express:v5
+        image: adiazga/node-express:v6
         imagePullPolicy: IfNotPresent
+        resources:
+          limits:
+            cpu: "0.2"
+            memory: "500Mi"
+          requests:
+            cpu: "0.1"
+            memory: "100Mi"
 
 ---
 apiVersion: v1

@@ -99,6 +99,8 @@
     }
 
     .container_list_vertical ul {
+        position: static;
+        z-index: 5;
         background-color: #0e0f2e;
         color: white;
         list-style: none;
@@ -107,6 +109,8 @@
     }
 
     .container_list_vertical ul a {
+        position: static;
+        z-index: 5;
         padding: 10px 35px;
         display: block;
         color: rgb(165, 165, 165);
@@ -127,7 +131,38 @@
 
     .active{
         margin-top: 0;
-        transition: all 1s ease;
     }
 
+
+    .activeSubmenu{
+        margin-top: 0 !important; 
+        opacity: 100 !important;
+        z-index: 0 !important;
+        background-color: #6B6B70;
+    }
+
+    .nav.submenu{
+        position: relative;
+        z-index: -1;
+        margin-top: -80px;
+        opacity: 0;
+        transition: opacity 0.5s ease, margin 0.5s ease;
+        transition-delay: 0.5s, 0s;
+    }
+
+    #contactoSubmenu{
+        margin-top: -100px;
+    }
+
+    #productosSubmenu{
+        margin-top: -400px;
+    }
+
+    .nav.submenu a{
+        position: static;
+        z-index: 0;
+    }
+
+    .nav.submenu a:last-child{
+        padding: 10px 35px;
 }
