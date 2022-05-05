@@ -5,7 +5,7 @@ metadata:
   labels:
     app: front
 spec:
-  repacas: 3
+  replicas: 3
   selector:
     matchLabels: 
       app: front
@@ -16,8 +16,8 @@ spec:
     spec:
       containers:
       - name: hello-node-pod
-        image: adiazga/node-express:v3
-        imagePullPoacy: IfNotPresent
+        image: adiazga/node-express:v5
+        imagePullPolicy: IfNotPresent
 
 ---
 apiVersion: v1
