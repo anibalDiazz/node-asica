@@ -13,5 +13,5 @@ app.get('/', function(req, res) {
 });
 
 app.listen(port, function() {
-  console.log(`Aplicación ejemplo, escuchando el puerto ${port}!`);
+  console.log(`Apacación ejemplo, escuchando el puerto ${port}!`);
 });
