@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata: 
+  name: hello-node
+  labels:
+    app: front
+spec:
+  replicas: 3
+  selector:
+    matchLabels: 
+      app: front
+  template:
+    metadata:
+      labels:
+        app: front
+    spec:
+      containers:
+      - name: hello-node-pod
+        image: adiazga/node-express:v5
+        imagePullPolicy: IfNotPresent
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: hello-node
+  labels:
+    app: front
+spec:
+  type: LoadBalancer
+  selector:
+    app: front
+  ports:
+    - protocol: TCP
+      port: 8080
+      targetPort: 8080
