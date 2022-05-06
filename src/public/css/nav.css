@@ -63,6 +63,22 @@
     .nav.container2#menuHam {
         display: none;
     }
+
+
+
+.nav.submenu.desplegado{
+    position: absolute;
+    background-color: #6B6B70;
+    margin-top: 64px;
+    max-width: min-content;
+    margin-left: 280px;
+}
+
+
+.nav.submenu.desplegado a{
+    display: block;
+    padding: 10px 35px !important;
+}
 }
 
 @media (max-width:770px) {
@@ -165,4 +181,9 @@
 
     .nav.submenu a:last-child{
         padding: 10px 35px;
+    }
+
+    .container_list_vertical a i {
+        float: right;
+    }
 }
